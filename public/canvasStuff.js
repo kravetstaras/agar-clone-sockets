@@ -14,14 +14,23 @@ const draw = () => {
   let randomX = Math.floor(500 * Math.random() + 10);
   let randomY = Math.floor(500 * Math.random() + 10);
 
-  context.beginPath();
-  context.fillStyle = 'rgb(255,0,0)';
-  context.arc(randomX, randomY, 10, 0, Math.PI * 2);
-  context.arc(200, 200, 10, 0, Math.PI * 2);
-  context.fill();
-  context.lineWidth = 3;
-  context.strokeStyle = 'rgb(0,255,0)';
-  context.stroke();
+
+  players.forEach(player => {
+    context.beginPath();
+    context.fillStyle = player.playerData.color;
+    context.arc(
+      player.playerData.locX,
+      player.playerData.locY,
+      player.playerData.radius,
+      0,
+      Math.PI * 2,
+    );
+    context.arc(200, 200, 10, 0, Math.PI * 2);
+    context.fill();
+    context.lineWidth = 3;
+    context.strokeStyle = 'rgb(0,255,0)';
+    context.stroke();
+  });
 
   orbs.forEach(orb => {
     context.beginPath();

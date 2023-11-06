@@ -2,6 +2,7 @@ let wHeight = window.innerHeight;
 let wWidth = window.innerWidth;
 let player = {};
 let orbs = [];
+let players = [];
 
 const canvas = document.querySelector('#the-canvas');
 let context = canvas.getContext('2d');
