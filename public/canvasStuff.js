@@ -1,9 +1,11 @@
 const init = () => {
+  console.log(orbs);
   draw();
 };
 
 const draw = () => {
   context.clearRect(0, 0, canvas.width, canvas.height);
+  context.setTransform(1, 0, 0, 1, 0, 0);
 
   const camX = -player.locX + canvas.width / 2;
   const camY = -player.locY + canvas.height / 2;
@@ -20,6 +22,15 @@ const draw = () => {
   context.lineWidth = 3;
   context.strokeStyle = 'rgb(0,255,0)';
   context.stroke();
+
+  orbs.forEach(orb => {
+    context.beginPath();
+    context.fillStyle = orb.color;
+    context.arc(orb.locX, orb.locY, orb.radius, 0, Math.PI * 2);
+    context.fill();
+  });
+
+  requestAnimationFrame(draw);
 };
 
 canvas.addEventListener('mousemove', event => {

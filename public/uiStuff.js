@@ -1,6 +1,7 @@
 let wHeight = window.innerHeight;
 let wWidth = window.innerWidth;
 let player = {};
+let orbs = [];
 
 const canvas = document.querySelector('#the-canvas');
 let context = canvas.getContext('2d');
@@ -20,7 +21,6 @@ document.querySelector('.name-form').addEventListener('submit', e => {
   document.querySelector('.player-name').innerHTML = player.name;
   loginModal.hide();
   spawnModal.show();
-  console.log(player);
 });
 
 document.querySelector('.start-game').addEventListener('click', e => {
