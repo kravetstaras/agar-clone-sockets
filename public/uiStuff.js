@@ -21,7 +21,7 @@ document.querySelector('.name-form').addEventListener('submit', e => {
   document.querySelector('.player-name').innerHTML = player.name;
   loginModal.hide();
   spawnModal.show();
-  console.log(player);
+  player;
 });
 
 document.querySelector('.start-game').addEventListener('click', e => {

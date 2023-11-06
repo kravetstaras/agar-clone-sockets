@@ -1,24 +1,12 @@
 const express = require('express');
 const app = express();
+const cors = require('cors');
+const PORT = process.env.PORT || 9000;
 app.use(express.static(__dirname + '/public'));
-const expressServer = app.listen(9000);
+app.use(cors);
+const expressServer = app.listen(PORT);
 const socketio = require('socket.io');
-const io = socketio(expressServer, {
-  cors: {
-    origin: ['http://localhost:3030'],
-    credentials: true,
-  },
-});
-const { instrument } = require('@socket.io/admin-ui');
-
-instrument(io, {
-  auth: {
-    type: 'basic',
-    username: 'admin',
-    password: '$2b$10$6/Cu3ozK3ECwVDwt5hXLruraFb9V8yy/zglypGbuxaelWN5GboHPy',
-  },
-  mode: 'development',
-});
+const io = socketio(expressServer);
 
 module.exports = {
   app,

@@ -51,19 +51,19 @@ canvas.addEventListener('mousemove', event => {
   if (angleDeg >= 0 && angleDeg < 90) {
     xVector = 1 - angleDeg / 90;
     yVector = -(angleDeg / 90);
-    console.log('Mouse is in the lower right quardrant');
+    ('Mouse is in the lower right quardrant');
   } else if (angleDeg >= 90 && angleDeg <= 180) {
     xVector = -(angleDeg - 90) / 90;
     yVector = -(1 - (angleDeg - 90) / 90);
-    console.log('Mouse is in the lower left quardrant');
+    ('Mouse is in the lower left quardrant');
   } else if (angleDeg >= -180 && angleDeg < -90) {
     xVector = (angleDeg + 90) / 90;
     yVector = 1 + (angleDeg + 90) / 90;
-    console.log('Mouse is in the top left quardrant');
+    ('Mouse is in the top left quardrant');
   } else if (angleDeg < 0 && angleDeg >= -90) {
     xVector = (angleDeg + 90) / 90;
     yVector = 1 - (angleDeg + 90) / 90;
-    console.log('Mouse is in the top right quardrant');
+    ('Mouse is in the top right quardrant');
   }
 
   player.xVector = xVector ? xVector : 0.1;
