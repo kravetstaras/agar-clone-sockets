@@ -1,13 +1,12 @@
 let wHeight = window.innerHeight;
 let wWidth = window.innerWidth;
-let player = {};
+const canvas = document.querySelector('#the-canvas');
+const context = canvas.getContext('2d');
+canvas.height = wHeight;
+canvas.width = wWidth;
+const player = {};
 let orbs = [];
 let players = [];
-
-const canvas = document.querySelector('#the-canvas');
-let context = canvas.getContext('2d');
-canvas.width = wWidth;
-canvas.height = wHeight;
 
 const loginModal = new bootstrap.Modal(document.querySelector('#loginModal'));
 const spawnModal = new bootstrap.Modal(document.querySelector('#spawnModal'));
@@ -22,12 +21,12 @@ document.querySelector('.name-form').addEventListener('submit', e => {
   document.querySelector('.player-name').innerHTML = player.name;
   loginModal.hide();
   spawnModal.show();
+  console.log(player);
 });
 
 document.querySelector('.start-game').addEventListener('click', e => {
   spawnModal.hide();
   const elArray = Array.from(document.querySelectorAll('.hiddenOnStart'));
-
   elArray.forEach(el => el.removeAttribute('hidden'));
   init();
 });
